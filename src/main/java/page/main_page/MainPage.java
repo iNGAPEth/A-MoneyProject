@@ -14,14 +14,18 @@ import java.time.Duration;
 import static org.openqa.selenium.remote.ErrorCodes.TIMEOUT;
 
 public class MainPage extends BasePage {
-    private static final String PRESS_REGISTER_BY_PHONE_BUTTON_XPATH_LOCATOR = "//*[@id='tab-0']/p";
-    private static final String FILL_PHONE_NUMBER_FIELD_XPATH_LOCATOR = "//*[@id=':r0:']";
+    private static final String PRESS_REGISTER_BY_PHONE_BUTTON_XPATH_LOCATOR =
+            "//*[@id='tab-0']/p";
+    private static final String FILL_PHONE_NUMBER_FIELD_XPATH_LOCATOR =
+            "//*[@id=':r0:']";
     private static final String GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR =
             "//*[@id='tabpanel-0']/div/form/div[1]/div[2]";
-    private static final String FILL_PASSWORD_FIELD_XPATH_LOCATOR = "//*[@id=':r1:']";
+    private static final String FILL_PASSWORD_FIELD_XPATH_LOCATOR =
+            "//*[@id=':r1:']";
     private static final String GET_INVALID_PASSWORD_ERROR_MESSAGE_XPATH_LOCATOR =
             "//*[@id='tabpanel-0']/div/form/div[2]/div[2]";
-    private static final String PRESS_ENTRANCE_BUTTON_XPATH_LOCATOR = "//*[@id='tabpanel-0']/div/form/button";
+    private static final String PRESS_ENTRANCE_BUTTON_XPATH_LOCATOR =
+            "//*[@id='tabpanel-0']/div/form/button";
     private static final String PRESS_DEMO_MODE_BUTTON_XPATH_LOCATOR =
             "//*[@id='root']/div[2]/div[5]/div[5]/div[5]/a[1]/h6";
     private static final String PRESS_FORGET_PASSWORD_BUTTON_XPATH_LOCATOR =
@@ -200,13 +204,12 @@ public class MainPage extends BasePage {
                         "чтобы сбросить его";
         Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
     }
-
     //    public void getDemoModeButtonErrorMessage() {
 //        WebElement errorMessage = driver.findElement(By.xpath("сделать локатор для какого-то " +
 //                "текста заглавия на странице пользователя по переходу по кнопке Войти"));
 //        String expectedMessageText = "Текст по локатору";
 //        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-//    }
+//  }
 
     public void getForgetPasswordButtonErrorMessage() {
         WebElement errorMessage = driver.findElement(By.xpath(GET_FORGET_PASSWORD_ERROR_MESSAGE_XPATH_LOCATOR));
@@ -219,14 +222,14 @@ public class MainPage extends BasePage {
 //                "текста заглавия на странице пользователя по переходу по кнопке Войти"));
 //        String expectedMessageText = "Текст по локатору";
 //        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-//    }
+//  }
 
     //    public void getDownloadGooglePlayButtonErrorMessage() {
 //        WebElement errorMessage = driver.findElement(By.xpath("сделать локатор для какого-то " +
 //                "текста заглавия на странице пользователя по переходу по кнопке Войти"));
 //        String expectedMessageText = "Текст по локатору";
 //        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-//    }
+//  }
 
     public void getEnglishLanguageMainPageErrorMessage() {
         WebElement errorMessage = driver.findElement(By.xpath(GET_ENGLISH_LANGUAGE_BUTTON_ERROR_MESSAGE_XPATH_LOCATOR));

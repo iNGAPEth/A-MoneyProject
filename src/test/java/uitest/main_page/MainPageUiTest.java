@@ -323,7 +323,7 @@ public class MainPageUiTest extends BaseUiTest {
                 .fillNumberPassportFieldForgotPasswordFrame("СМ567551")
                 .pressContinueButton()
                 .putCursorEnterSixSymbolsCodeFieldForgotPasswordFrame()
-                .fillSixSymbolsCodeFieldForgotPasswordFrame("123458")
+                .fillSixSymbolsCodeFieldForgotPasswordFrame("111111")
                 .pressContinueButton()
                 //не работает кнопка Продолжить,разрабы разбираются
                 .putCursorCreatePasswordFieldRecoveryFrame()
