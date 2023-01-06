@@ -14,7 +14,6 @@ public class ExchangeRatesTest extends BaseUiTest {
         new ExchangeRates(driver)
                 .pressExchangeRatesButton()
                 .getConverterCurrencyFieldErrorMessage();
-
     }
 
     @Test(testName = "testPositiveCheckingDropdownArrowButtonExchangeRatesPage",
@@ -29,7 +28,12 @@ public class ExchangeRatesTest extends BaseUiTest {
                 .fillQuantityField("1000")
                 .pressDropdownArrowButtonPriceField()
                 .selectCurrencyFromDropdownMenuPriceButton()
-                .pressCurrencyReversionButton();
+                .pressCurrencyReversionButton()
+                .getEmptyFieldQuantity();
+
+
+
+                //.putCursorIntoQuantityLine();
     }
 
     @Test(testName = "testNegativeSwitchEnglishLanguageButtonFromExchangeRatesPage",

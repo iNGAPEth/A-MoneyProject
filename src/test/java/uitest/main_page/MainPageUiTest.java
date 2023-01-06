@@ -1,5 +1,6 @@
 package uitest.main_page;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page.main_page.MainHeaderPage;
 import page.main_page.MainPage;
@@ -10,79 +11,83 @@ import uitest.core_uitest.BaseUiTest;
 
 
 public class MainPageUiTest extends BaseUiTest {
-
     @Test(testName = "testPositiveWithValidCredentials",
             groups = {"Smoke"},
             description = "Тест с валидными данными пользователя")
     public void testPositiveWithValidCredentials() {
         new MainPage(driver)
                 .pressRegisterByPhoneButton()
-                .fillPhoneNumberField("+79243405849")
-                .fillPasswordField("Moby000$")
-                .pressEntranceButton();
-//                .getUserMainPageErrorMessage();
+                .fillPhoneNumberField("+79243405577")
+                .fillPasswordField("Moby000+")
+                .pressEntranceButton()
+                .getUserMainPageErrorMessage();
     }
 
+    @DataProvider (name = "testDataProviderFieldNumber")
+    public Object[][] getDataProviderFieldNumber() {
+        return new Object[][] {{"+79243405"},{"+/-[}?>"},{" "},{"саша"},{"sasha"},{"+13458451214587452158456789"}};
+    }
 
-    @Test(testName = "testNegativeWithInvalidNumber",
+    @Test (testName = "testDataProviderFieldNumber",
             groups = {"Smoke"},
-            description = "Тест с невалидным номером телефона")
-    public void testNegativeWithInvalidNumber() {
+            description = "Тест поля Телефон на неверный номер телефона, на спецсимволы, на пустую строку, на кириллицу, на латиницу, на количество значений",
+            dataProvider = "testDataProviderFieldNumber")
+    public void testDataProvider(String object) {
         new MainPage(driver)
                 .pressRegisterByPhoneButton()
-                .fillPhoneNumberField("+79243405")
+                .fillPhoneNumberField(object)
                 .getInvalidPhoneNumberErrorMessage();
     }
 
-    @Test(testName = "testNegativeWithSpecialSymbolsNumberField",
-            groups = {"Smoke"},
-            description = "Тест поля Телефон на спецсимволы")
-    public void testNegativeWithSpecialSymbolsNumberField() {
-        new MainPage(driver)
-                .pressRegisterByPhoneButton()
-                .fillPhoneNumberField("+/-[}?>")
-                .getSpecialSymbolsPhoneFieldErrorMessage();
-    }
-
-    @Test(testName = "testNegativeIsEmptyNumberFiled",
-            groups = {"Smoke"},
-            description = "Тест поля Телефон на пуствую строку")
-    public void testNegativeIsEmptyNumberFiled() {
-        new MainPage(driver)
-                .pressRegisterByPhoneButton()
-                .fillPhoneNumberField(" ")
-                .getIsEmptyPhoneNumberErrorMessage();
-    }
-
-    @Test(testName = "testNegativeCyrillicSymbolsNumberField",
-            groups = {"Smoke"},
-            description = "Тест поля Телефон на ввод кириллицы")
-    public void testNegativeCyrillicSymbolsNumberField() {
-        new MainPage(driver)
-                .pressRegisterByPhoneButton()
-                .fillPhoneNumberField("саша")
-                .getCyrillicPhoneNumberErrorMessage();
-    }
-
-    @Test(testName = "testNegativeLatinSymbolsNumberField",
-            groups = {"Smoke"},
-            description = "Тест поля Телефон на ввод латиницы")
-    public void testNegativeLatinSymbolsNumberField() {
-        new MainPage(driver)
-                .pressRegisterByPhoneButton()
-                .fillPhoneNumberField("sasha")
-                .getLatinPhoneNumberErrorMessage();
-    }
-
-    @Test(testName = "testNegativeMaxSymbolsNumberField",
-            groups = {"Smoke"},
-            description = "Тест поля Телефон на максимальный ввод значений")
-    public void testNegativeMaxSymbolsNumberField() {
-        new MainPage(driver)
-                .pressRegisterByPhoneButton()
-                .fillPhoneNumberField("+13458451214587452158451581548548543274274")
-                .getMaxSymbolsPhoneNumberErrorMessage();
-    }
+//    @Test(testName = "testNegativeWithSpecialSymbolsNumberField",
+//            groups = {"Smoke"},
+//            description = "Тест поля Телефон на спецсимволы")
+//    public void testNegativeWithSpecialSymbolsNumberField() {
+//        new MainPage(driver)
+//                .pressRegisterByPhoneButton()
+//                .fillPhoneNumberField("+/-[}?>")
+//                .getSpecialSymbolsPhoneFieldErrorMessage();
+//    }
+//
+//    @Test(testName = "testNegativeIsEmptyNumberFiled",
+//            groups = {"Smoke"},
+//            description = "Тест поля Телефон на пуствую строку")
+//    public void testNegativeIsEmptyNumberFiled() {
+//        new MainPage(driver)
+//                .pressRegisterByPhoneButton()
+//                .fillPhoneNumberField(" ")
+//                .getIsEmptyPhoneNumberErrorMessage();
+//    }
+//
+//    @Test(testName = "testNegativeCyrillicSymbolsNumberField",
+//            groups = {"Smoke"},
+//            description = "Тест поля Телефон на ввод кириллицы")
+//    public void testNegativeCyrillicSymbolsNumberField() {
+//        new MainPage(driver)
+//                .pressRegisterByPhoneButton()
+//                .fillPhoneNumberField("саша")
+//                .getCyrillicPhoneNumberErrorMessage();
+//    }
+//
+//    @Test(testName = "testNegativeLatinSymbolsNumberField",
+//            groups = {"Smoke"},
+//            description = "Тест поля Телефон на ввод латиницы")
+//    public void testNegativeLatinSymbolsNumberField() {
+//        new MainPage(driver)
+//                .pressRegisterByPhoneButton()
+//                .fillPhoneNumberField("sasha")
+//                .getLatinPhoneNumberErrorMessage();
+//    }
+//
+//    @Test(testName = "testNegativeMaxSymbolsNumberField",
+//            groups = {"Smoke"},
+//            description = "Тест поля Телефон на максимальный ввод значений")
+//    public void testNegativeMaxSymbolsNumberField() {
+//        new MainPage(driver)
+//                .pressRegisterByPhoneButton()
+//                .fillPhoneNumberField("+13458451214587452158451581548548543274274")
+//                .getMaxSymbolsPhoneNumberErrorMessage();
+//    }
 
     @Test(testName = "testNegativeWithInvalidPassword",
             groups = {"Smoke"},
@@ -245,7 +250,6 @@ public class MainPageUiTest extends BaseUiTest {
         new MainRegisterPage(driver)
                 .pressRegisterButton()
                 .getRegisterButtonErrorMessage();
-        driver.switchTo().defaultContent();
     }
 
     @Test(testName = "testPositiveSendCodeAgainButtonRegisterPage",
@@ -255,7 +259,7 @@ public class MainPageUiTest extends BaseUiTest {
         new MainRegisterPage(driver)
                 .pressRegisterButton()
                 .putCursorNumberRegisterFieldRegisterFrame()
-                .fillNumberFieldRegisterFrame("+79243405847")
+                .fillNumberFieldRegisterFrame("+79243405840")
                 .pressContinueButton()
                 .pressSendCodeAgainButtonRegisterFrame();
     }
@@ -267,30 +271,31 @@ public class MainPageUiTest extends BaseUiTest {
         new MainRegisterPage(driver)
                 .pressRegisterButton()
                 .putCursorNumberRegisterFieldRegisterFrame()
-                .fillNumberFieldRegisterFrame("+79243405843")
+                .fillNumberFieldRegisterFrame("+79243405849")
                 .pressContinueButton()
                 .putCursorEnterSixSymbolsCodeFieldRegisterFrame()
-                .fillSixSymbolsCodeFieldRegisterFrame(String.valueOf(258497))
+                .fillSixSymbolsCodeFieldRegisterFrame(String.valueOf(772266))
                 .pressContinueButton()
-                .fillNameFieldRegisterFrame("Михаил")
+                .fillNameFieldRegisterFrame("Кирилл")
                 .fillPatronymicFieldRegisterFrame("Александрович")
                 .putCursorSurnameFieldRegisterFrame()
-                .fillSurnameFieldRegisterFrame("Иванов")
+                .fillSurnameFieldRegisterFrame("Шульц")
                 .putCursorNumberPassportFieldRegisterFrame()
-                .fillNumberPassportFieldRegisterFrame("СМ567791")
+                .fillNumberPassportFieldRegisterFrame("СМ777120")
                 .pressResidentButtonRegisterFrame()
                 .pressContinueButton()
                 .putCreatePasswordFieldRegisterFrame()
-                .fillCreatePasswordFieldRegisterFrame("Moby000@")
+                .fillCreatePasswordFieldRegisterFrame("Moby000!!")
                 .putCursorConfirmPasswordFieldRegisterFrame()
-                .fillConfirmPasswordFieldRegisterFrame("Moby000@")
+                .fillConfirmPasswordFieldRegisterFrame("Moby000!!")
                 .pressContinueButton()
                 .pressControlQuestionButton()
                 .selectControlQuestionFromDropdownList()
                 .putCursorCreateAnswerFieldRegisterFrame()
-                .fillCreateAnswerForControlQuestionField("Пицца")
+                .fillCreateAnswerForControlQuestionField("колобок")
                 .pressContinueButton()
                 .pressEnterButton();
+
     }
 
     @Test(testName = "testPositiveSliderMainPage",
@@ -320,14 +325,16 @@ public class MainPageUiTest extends BaseUiTest {
         new MainForgotPasswordPage(driver)
                 .pressForgotPasswordButton()
                 .putCursorNumberPassportFieldForgotPasswordFrame()
-                .fillNumberPassportFieldForgotPasswordFrame("СМ567551")
+                .fillNumberPassportFieldForgotPasswordFrame("ИТ557555")
                 .pressContinueButton()
                 .putCursorEnterSixSymbolsCodeFieldForgotPasswordFrame()
                 .fillSixSymbolsCodeFieldForgotPasswordFrame("111111")
                 .pressContinueButton()
-                //не работает кнопка Продолжить,разрабы разбираются
                 .putCursorCreatePasswordFieldRecoveryFrame()
                 .fillCreatePasswordFieldRecoveryFrame("Moby000!")
+                .putCursorConfirmPasswordFieldRecoveryFrame()
+                .fillConfirmPasswordFieldRecoveryFrame("Moby000!")
+                .pressContinueButton()
                 .pressEnterButtonRecoveryFrame();
     }
 }

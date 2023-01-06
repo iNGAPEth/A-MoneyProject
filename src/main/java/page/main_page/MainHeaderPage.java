@@ -20,10 +20,14 @@ public class MainHeaderPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
 
-    private static final String PRESS_LOGO_BUTTON_XPATH_LOCATOR = "//*[@id='root']/div[1]/a/div/div";
-    private static final String PRESS_ATM_AND_DEPARTMENTS_XPATH_LOCATOR = "//*[@id='root']/div[1]/div[1]/div[1]/a";
-    private static final String PRESS_EXCHANGE_RATES_XPATH_LOCATOR = "//*[@id='root']/div[1]/div[1]/div[2]/a";
-    private static final String PRESS_CONTACTS_XPATH_LOCATOR = "//*[@id='root']/div[1]/div[1]/div[3]/a";
+    private static final String PRESS_LOGO_BUTTON_XPATH_LOCATOR =
+            "//*[@id='root']/div[1]/a/div/div";
+    private static final String PRESS_ATM_AND_DEPARTMENTS_XPATH_LOCATOR =
+            "//*[@id='root']/div[1]/div[1]/div[1]/a";
+    private static final String PRESS_EXCHANGE_RATES_XPATH_LOCATOR =
+            "//*[@id='root']/div[1]/div[1]/div[2]/a";
+    private static final String PRESS_CONTACTS_XPATH_LOCATOR =
+            "//*[@id='root']/div[1]/div[1]/div[3]/a";
     private static final String GET_ATM_AND_DEPARTMENTS_ERROR_MESSAGE_XPATH_LOCATOR =
             "//*[@id='root']/div[3]/p[1]";
     private static final String GET_EXCHANGE_RATES_ERROR_MESSAGE_XPATH_LOCATOR =

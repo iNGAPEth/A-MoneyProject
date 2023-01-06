@@ -36,12 +36,12 @@ public class MainPage extends BasePage {
             "//*[@id='root']/div[2]/div[6]/div[2]/div/a[2]/img";
     private static final String PRESS_RU_EN_BUTTON_XPATH_LOCATOR =
             "//*[@id='root']/div[1]/div[2]/label/span[2]/div/h6[2]";
-    private static final String GET_ENGLISH_LANGUAGE_BUTTON_ERROR_MESSAGE_XPATH_LOCATOR =
-            "//*[@id='tab-0']/p";
-    private static final String GET_RUSSIAN_LANGUAGE_BUTTON_ERROR_MESSAGE_XPATH_LOCATOR =
-            "//*[@id='tab-0']/p";
+    private static final String GET_ENGLISH_LANGUAGE_BUTTON_ERROR_MESSAGE_XPATH_LOCATOR = "//*[@id='tab-0']/p";
+    private static final String GET_RUSSIAN_LANGUAGE_BUTTON_ERROR_MESSAGE_XPATH_LOCATOR = "//*[@id='tab-0']/p";
     private static final String GET_FORGET_PASSWORD_ERROR_MESSAGE_XPATH_LOCATOR =
             "//*[@id='root']/div[2]/div[5]/div/div[2]/div[1]/div[1]/p";
+    private static final String GET_USER_PAGE_ERROR_MESSAGE_XPATH_LOCATOR =
+            "//*[@id='root']/div[2]/nav/ul/li[1]/a";
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -122,12 +122,11 @@ public class MainPage extends BasePage {
         return new MainPage(driver);
     }
 
-//    public void getUserMainPageErrorMessage() {
-//        WebElement errorMessage = driver.findElement(By.xpath("сделать локатор для какого-то " +
-//                "текста заглавия на странице пользователя по переходу по кнопке Войти"));
-//        String expectedMessageText = "Текст по локатору";
-//        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-//    }
+    public void getUserMainPageErrorMessage() {
+        WebElement errorMessage = driver.findElement(By.xpath(GET_USER_PAGE_ERROR_MESSAGE_XPATH_LOCATOR));
+        String expectedMessageText = "Главная страница";
+        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
+    }
 
     public void getInvalidPhoneNumberErrorMessage() {
         WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
@@ -135,35 +134,35 @@ public class MainPage extends BasePage {
         Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
     }
 
-    public void getSpecialSymbolsPhoneFieldErrorMessage() {
-        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
-        String expectedMessageText = "Некорректный номер телефона";
-        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-    }
-
-    public void getIsEmptyPhoneNumberErrorMessage() {
-        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
-        String expectedMessageText = "Некорректный номер телефона";
-        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-    }
-
-    public void getCyrillicPhoneNumberErrorMessage() {
-        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
-        String expectedMessageText = "Некорректный номер телефона";
-        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-    }
-
-    public void getLatinPhoneNumberErrorMessage() {
-        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
-        String expectedMessageText = "Некорректный номер телефона";
-        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-    }
-
-    public void getMaxSymbolsPhoneNumberErrorMessage() {
-        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
-        String expectedMessageText = "Некорректный номер телефона";
-        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
-    }
+//    public void getSpecialSymbolsPhoneFieldErrorMessage() {
+//        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
+//        String expectedMessageText = "Некорректный номер телефона";
+//        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
+//    }
+//
+//    public void getIsEmptyPhoneNumberErrorMessage() {
+//        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
+//        String expectedMessageText = "Некорректный номер телефона";
+//        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
+//    }
+//
+//    public void getCyrillicPhoneNumberErrorMessage() {
+//        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
+//        String expectedMessageText = "Некорректный номер телефона";
+//        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
+//    }
+//
+//    public void getLatinPhoneNumberErrorMessage() {
+//        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
+//        String expectedMessageText = "Некорректный номер телефона";
+//        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
+//    }
+//
+//    public void getMaxSymbolsPhoneNumberErrorMessage() {
+//        WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PHONE_NUMBER_ERROR_MESSAGE_XPATH_LOCATOR));
+//        String expectedMessageText = "Некорректный номер телефона";
+//        Assert.assertEquals(errorMessage.getText(), expectedMessageText, "Verify error message");
+//    }
 
     public void getInvalidPasswordErrorMessage() {
         WebElement errorMessage = driver.findElement(By.xpath(GET_INVALID_PASSWORD_ERROR_MESSAGE_XPATH_LOCATOR));

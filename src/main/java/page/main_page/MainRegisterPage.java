@@ -20,12 +20,12 @@ public class MainRegisterPage extends BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
     }
 
-    private static final String PRESS_REGISTER_BUTTON_XPATH_LOCATOR = "//*[@id='root']/div[2]/div[5]/div[5]/a/button";
+    private static final String PRESS_REGISTER_BUTTON_XPATH_LOCATOR =
+            "//*[@id='root']/div[2]/div[5]/div[5]/a/button";
     private static final String GET_REGISTER_BUTTON_ERROR_MESSAGE_XPATH_LOCATOR =
             "//*[@id='root']/div[2]/div[2]/div[2]/h4";
     private static final String PUT_CURSOR_INTO_NUMBER_REGISTER_FIELD_FRAME_XPATH_LOCATOR = "//*[@id=':r2:']";
-    private static final String FILL_NUMBER_FIELD_REGISTER_FRAME_XPATH_LOCATOR =
-            "//*[@id=':r2:']";
+    private static final String FILL_NUMBER_FIELD_REGISTER_FRAME_XPATH_LOCATOR = "//*[@id=':r2:']";
     private static final String PRESS_CONTINUE_BUTTON_XPATH_LOCATOR =
             "//*[@id='root']/div[2]/div[2]/div[3]/form/button";
     private static final String PUT_CURSOR_INTO_ENTER_SIX_SYMBOLS_CODE_FIELD_FRAME_XPATH_LOCATOR = "//*[@id=':r3:']";
